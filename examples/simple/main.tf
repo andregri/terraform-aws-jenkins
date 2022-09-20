@@ -1,21 +1,25 @@
-# This is the default example
-# customise it as you see fit for your example usage of your module
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.31.0"
+    }
+  }
+}
 
-# add provider configurations here, for example:
-# provider "aws" {
-#
-# }
+locals {
+  aws_region = "us-east-1"
+}
 
-# Declare your backends and other terraform configuration here
-# This is an example for using the consul backend.
-# terraform {
-#   backend "consul" {
-#     path = "test_module/simple"
-#   }
-# }
+provider "aws" {
+  # Configuration options
+  region = local.aws_region
+}
 
-
-module "example" {
-  source = "../../"
-  dummy  = "test"
+module "jenkins" {
+  source             = "../../"
+  key_name           = "kp"
+  environment_name   = "dev"
+  region             = local.aws_region
+  availability_zones = join("", [local.aws_region, "a"])
 }

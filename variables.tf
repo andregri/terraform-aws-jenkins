@@ -1,8 +1,16 @@
-# variables.tf
-# Use this file to declare the variables that the module will use.
-
-# A dummy variable is provided to force a test validation
-variable "dummy" {
+variable "key_name" {
+  description = "Name of the AWS key pair to SSH into the EC2 instance"
   type        = string
-  description = "dummy variable"
+}
+
+variable "environment_name" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "availability_zones" {
+  type = string
 }

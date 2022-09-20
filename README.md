@@ -54,26 +54,40 @@ examples themselves
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >1.2.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 4.31.0 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.31.0 |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_vault_demo_vpc"></a> [vault\_demo\_vpc](#module\_vault\_demo\_vpc) | terraform-aws-modules/vpc/aws | n/a |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_instance.jenkins](https://registry.terraform.io/providers/hashicorp/aws/4.31.0/docs/resources/instance) | resource |
+| [aws_security_group.jenkins](https://registry.terraform.io/providers/hashicorp/aws/4.31.0/docs/resources/security_group) | resource |
+| [aws_ami.ubuntu](https://registry.terraform.io/providers/hashicorp/aws/4.31.0/docs/data-sources/ami) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_dummy"></a> [dummy](#input\_dummy) | dummy variable | `string` | n/a | yes |
+| <a name="input_availability_zones"></a> [availability\_zones](#input\_availability\_zones) | n/a | `string` | n/a | yes |
+| <a name="input_environment_name"></a> [environment\_name](#input\_environment\_name) | n/a | `string` | n/a | yes |
+| <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Name of the AWS key pair to SSH into the EC2 instance | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ssh_endpoint"></a> [ssh\_endpoint](#output\_ssh\_endpoint) | n/a |
 <!-- END_TF_DOCS -->
